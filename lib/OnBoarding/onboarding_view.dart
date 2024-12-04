@@ -76,17 +76,10 @@ class _OnboardingViewState extends State<OnboardingView> {
                       style: const TextStyle(color: Colors.grey,fontSize: 17), textAlign: TextAlign.center),
                 ],
               );
-
             }),
       ),
     );
   }
-
-  //Now the problem is when press get started button
-  // after re run the app we see again the onboarding screen
-  // so lets do one time onboarding
-
-  //Get started button
 
   Widget getStarted(){
     return Container(
@@ -100,9 +93,6 @@ class _OnboardingViewState extends State<OnboardingView> {
           onPressed: ()async{
             final pres = await SharedPreferences.getInstance();
             pres.setBool("onboarding", true);
-
-            //After we press get started button this onboarding value become true
-            // same key
             if(!mounted)return;
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
           },
